@@ -33,6 +33,7 @@ var grid = [];
 var selectedTile = [-1, -1]
 var buttons = [];
 var paintColor = 'BLACK'
+var area = null;
 
 for (var i = 0; i < CANVAS_SIZE * CANVAS_SIZE; i++) {
   grid.push('WHITE')
@@ -42,11 +43,15 @@ function setup() {
   createCanvas(CANVAS_SIZE * TILE_SIZE + 50, CANVAS_SIZE * TILE_SIZE + 50);
 
   console.log(Object.keys(COLORS))
+
+  area = createElement('textarea');
+  area.elt.value = getInArrayFormate();
+  area.size(500, 450)
   for (var i = 0; i < Object.keys(COLORS).length; i++) {
     var button = createButton(Object.keys(COLORS)[i]);
 
     var x = 80 * i;
-    var y = 500;
+    var y = 580;
 
     if (i > 6) {
       x = 80 * (i - 7)
@@ -69,22 +74,27 @@ function setup() {
   var printBTN = createButton("I'M DONEEEEE");
   printBTN.position(0, 720);
   printBTN.mousePressed(function () {
-    var out = "{"
-    for (var i = 0; i < grid.length; i++) {
-      // if (i % 8 == 0 && i != 0) {
-      //   out += '}'
-      // }
-      out += i % 8 == 0 ? "{" : " ";
-      out += grid[i] + (i % 8 == 7 ? "}," : ", ")
-    }
-    out += '}'
-    alert(out)
+    alert(getInArrayFormate())
   });
 }
 
 function mouseClicked() {
   console.log(selectedTile)
   grid[selectedTile[0] + (selectedTile[1] * CANVAS_SIZE)] = paintColor;
+  area.elt.value = getInArrayFormate();
+}
+
+/**
+ * Gets the array formate of the pixel art icon
+ */
+function getInArrayFormate() {
+  var out = "{"
+  for (var i = 0; i < grid.length; i++) {
+    out += i % 8 == 0 ? "{" : " ";
+    out += grid[i] + (i % 8 == 7 ? "}," : ", ")
+  }
+  out += '}'
+  return out;
 }
 
 function draw() {
