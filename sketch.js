@@ -27,6 +27,7 @@ const COLORS = {
   'COAL': [5, 5, 5],
   'LEAVES': [0, 255, 0],
   'DIRT': [165, 42, 42],
+  'WOOD': [185, 62, 62],
 }
 
 var grid = [];
