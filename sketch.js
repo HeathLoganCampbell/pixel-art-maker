@@ -67,7 +67,7 @@ function setup() {
   }
 
   var printBTN = createButton("I'M DONEEEEE");
-  printBTN.position(0, 600);
+  printBTN.position(0, 720);
   printBTN.mousePressed(function () {
     var out = "{"
     for (var i = 0; i < grid.length; i++) {
