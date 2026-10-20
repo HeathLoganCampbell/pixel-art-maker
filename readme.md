@@ -3,5 +3,5 @@ A mini website for quickly making icons for Minecraft Monday's Replica Minigame.
 
 ![Website screenshot v_1](./readme-resources/website_v1.png)
 
-## Webiste
+## Website
 [Try it out](https://mcm-pixel-art.netlify.com/)
